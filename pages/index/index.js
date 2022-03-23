@@ -46,13 +46,11 @@ Page({
           tracks: result3.playlist.tracks.slice(0, 3)
         }
         arrTopList.push(topListItem)
-        if (index === 5) this.setData({
+        this.setData({
           topList: arrTopList
         })
       }
     }
-
-
   },
 
   /**
