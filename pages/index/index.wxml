@@ -8,7 +8,7 @@
     </swiper-item>
   </swiper>
   <!-- 五个图标导航区 -->
-  <view class="navContainer">
+  <view class="navContainer" bindtap="handleTap" id="recommend">
     <view class="navItem">
       <text class="iconfont icon-chrome"></text>
       <text>每日推荐</text>

@@ -40,7 +40,13 @@ export const reqLogin = (data) => {
     wx.request({
       url: localhost + '/login/cellphone',
       data,
-      success: (res) => resolve(res.data),
+      success: (res) => {
+        wx.setStorage({
+          key: 'cookies',
+          data: res.cookies
+        })
+        resolve(res.data)
+      },
       fail: (err) => reject(err)
     })
   })
@@ -51,6 +57,43 @@ export const reqUserRecord = (data) => {
     wx.request({
       url: localhost + '/user/record',
       data,
+      success: (res) => resolve(res.data),
+      fail: (err) => reject(err)
+    })
+  })
+}
+
+export const reqVideoGroupList = () => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: localhost + '/video/group/list',
+      success: (res) => resolve(res.data),
+      fail: (err) => reject(err)
+    })
+  })
+}
+
+export const reqVideoGroup = (data) => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: localhost + '/video/group',
+      data,
+      header: {
+        cookie: wx.getStorageSync('cookies') ? wx.getStorageSync('cookies').find(item => item.includes('MUSIC_U')) : ''
+      },
+      success: (res) => resolve(res.data),
+      fail: (err) => reject(err)
+    })
+  })
+}
+
+export const reqRecommendSongs = () => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: localhost + '/recommend/songs',
+      header: {
+        cookie: wx.getStorageSync('cookies') ? wx.getStorageSync('cookies').find(item => item.includes('MUSIC_U')) : ''
+      },
       success: (res) => resolve(res.data),
       fail: (err) => reject(err)
     })

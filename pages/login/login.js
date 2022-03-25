@@ -63,8 +63,8 @@ Page({
         title: '登录成功',
       })
       wx.setStorageSync('userInfo', JSON.stringify(result.profile))
-      return wx.reLaunch({
-        url: '/pages/personal/personal',
+      return wx.navigateBack({
+        delta: 1,
       })
     } else {
       return wx.showToast({
@@ -78,7 +78,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**

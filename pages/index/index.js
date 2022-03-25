@@ -15,25 +15,31 @@ Page({
     personalized: [],
     topList: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: async function (options) {
+  handleTap(e) {
+    const {
+      id
+    } = e.currentTarget
+    wx.navigateTo({
+      url: `/pages/${id}/${id}`,
+    })
+  },
+  async getBanner() {
     const result = await reqBanner()
     if (result.statusCode === 200) {
       this.setData({
         bannerList: result.data.banners
       })
     }
-
+  },
+  async getPersonalized() {
     const result2 = await reqPersonalized()
     if (result2.statusCode === 200) {
       this.setData({
         personalized: result2.data.result
       })
     }
-
+  },
+  async getListData() {
     let index = 0
     const arrTopList = []
     while (index < 5) {
@@ -51,6 +57,14 @@ Page({
         })
       }
     }
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: async function (options) {
+    this.getBanner()
+    this.getPersonalized()
+    this.getListData()
   },
 
   /**
