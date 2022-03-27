@@ -1,0 +1,128 @@
+@keyframes imgRotate {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+.songDetailContainer {
+  height: 100%;
+  background-color: #555;
+  padding: 10rpx;
+}
+/* 播放器 */
+.songDetailContainer .pannel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.songDetailContainer .author {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 0 15rpx;
+}
+.songDetailContainer .circle {
+  position: relative;
+  z-index: 10;
+  width: 60rpx;
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-top: 10rpx;
+}
+.songDetailContainer .needle {
+  position: relative;
+  z-index: 9;
+  top: -27rpx;
+  left: 56rpx;
+  width: 192rpx;
+  height: 274rpx;
+  transform: rotateZ(-24deg);
+  transform-origin: 40rpx 0;
+  transition: transform 0.8s;
+}
+/* 播放器 */
+/* 指针动画 */
+.songDetailContainer .needleRotating {
+  transform: rotateZ(0deg);
+}
+.songDetailContainer .discContainer {
+  position: relative;
+  top: -170rpx;
+  width: 598rpx;
+  height: 598rpx;
+}
+.discContainer .disc {
+  position: relative;
+  z-index: 8;
+  width: 598rpx;
+  height: 598rpx;
+}
+.discContainer .musicImg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 370rpx;
+  height: 370rpx;
+  animation: imgRotate 5s linear infinite paused;
+}
+/* 播放器 */
+/* 磁盘动画 */
+.discContainer .imgRotating {
+  animation: imgRotate 5s linear infinite;
+}
+/* 进度条 */
+.progress {
+  position: relative;
+  top: -60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+.progress .barControl {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 450rpx;
+  height: 4rpx;
+  border-radius: 4rpx;
+  background-color: #333;
+  margin: 0 15rpx;
+}
+.progress .barControl .whiteDot{
+  position: absolute;
+  transform: translateX(-50%);
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.progress .barControl .redline{
+  height: 4rpx;
+  border-radius: 4rpx;
+  background-color: red;
+}
+/* 控制区 */
+.musicControl {
+  position: absolute;
+  bottom: 60rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #fff;
+  padding-top: 30rpx;
+}
+.musicControl .iconfont {
+  color: #fff;
+  font-size: 50rpx;
+}
+.musicControl .big {
+  font-size: 80rpx;
+}

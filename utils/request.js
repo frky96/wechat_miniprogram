@@ -99,3 +99,25 @@ export const reqRecommendSongs = () => {
     })
   })
 }
+
+export const reqSongDetail = (data) => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: localhost + '/song/detail',
+      data,
+      success: (res) => resolve(res.data),
+      fail: (err) => reject(err)
+    })
+  })
+}
+
+export const reqSongUrl = (data) => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: localhost + '/song/url',
+      data,
+      success: (res) => resolve(res.data),
+      fail: (err) => reject(err)
+    })
+  })
+}

@@ -1,0 +1,31 @@
+<view class="songDetailContainer">
+  <!-- 播放器 -->
+  <view class="pannel">
+    <view class="author">
+      <view class="author" wx:for="{{songDetail.ar}}" wx:key="id">{{item.name}}</view>
+    </view>
+    <view class="circle"></view>
+    <image class="needle {{isPlay && 'needleRotating'}}" src="/static/images/song/needle.png"></image>
+    <view class="discContainer">
+      <image class="disc" src="/static/images/song/disc.png"></image>
+      <image class="musicImg {{isPlayDelay && 'imgRotating'}}" src="{{songDetail.al.picUrl}}"></image>
+    </view>
+  </view>
+  <!-- 进度条 -->
+  <view class="progress">
+    <text>{{currentTime}}</text>
+    <view class="barControl">
+      <view style="left: {{songPercent}}" class="whiteDot"></view>
+      <view style="width: {{songPercent}}" class="redline"></view>
+    </view>
+    <text>{{totalTime}}</text>
+  </view>
+  <!-- 控制区 -->
+  <view class="musicControl">
+    <text class="iconfont icon-random"></text>
+    <text class="iconfont icon-arrow-double-left" bindtap="switchSong" id="prev"></text>
+    <text class="iconfont big {{isPlay ? 'icon-zanting' : 'icon-bofang'}}" bindtap="handleMusicPlay"></text>
+    <text class="iconfont icon-arrow-double-right" bindtap="switchSong" id="next"></text>
+    <text class="iconfont icon-liebiao"></text>
+  </view>
+</view>

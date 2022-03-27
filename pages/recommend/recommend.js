@@ -1,7 +1,7 @@
+import pubsub from 'pubsub-js'
 import {
   reqRecommendSongs
 } from '../../utils/request'
-
 Page({
 
   /**
@@ -10,7 +10,8 @@ Page({
   data: {
     day: '',
     month: '',
-    recommendSongs: []
+    recommendSongs: [],
+    index: ''
   },
   async getRecommendSongs() {
     const result = await reqRecommendSongs()
@@ -31,6 +32,18 @@ Page({
 
     }
   },
+  navigateToSongDetail(e) {
+    const {
+      id,
+      index
+    } = e.currentTarget.dataset
+    this.setData({
+      index
+    })
+    wx.navigateTo({
+      url: `/pages/songDetail/songDetail?songId=${id}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -38,6 +51,25 @@ Page({
     this.setData({
       day: new Date().getDate(),
       month: new Date().getMonth() + 1
+    })
+    pubsub.subscribe('changeSong', (_, type) => {
+      let {
+        recommendSongs,
+        index
+      } = this.data
+      switch (type) {
+        case 'prev':
+          index -= 1
+          break;
+        case 'next':
+          index += 1
+          break;
+      }
+      this.setData({
+        index
+      })
+      let musicId = recommendSongs[index].id
+      pubsub.publish('sendNewId', musicId)
     })
   },
 
@@ -66,7 +98,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    pubsub.unsubscribe('changeSong')
   },
 
   /**
