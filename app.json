@@ -1,12 +1,23 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/recommend/recommend",
-    "pages/songDetail/songDetail",
+    "pages/search/search",
     "pages/video/video",
     "pages/personal/personal",
     "pages/login/login"
   ],
+  "subPackages": [{
+    "root": "songPackage",
+    "pages": [
+      "pages/recommend/recommend",
+      "pages/songDetail/songDetail"
+    ]
+  }],
+  "preloadRule": {
+    "pages/personal/personal": {
+      "packages": ["songPackage"]
+    }
+  },
   "window": {
     "navigationBarBackgroundColor": "#d43c33",
     "navigationBarTextStyle": "white",
@@ -39,5 +50,7 @@
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-  "requiredBackgroundModes": ["audio"]
+  "requiredBackgroundModes": [
+    "audio"
+  ]
 }

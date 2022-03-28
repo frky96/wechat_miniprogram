@@ -1,0 +1,106 @@
+.searchContainer {
+  padding: 10rpx 30rpx 0;
+}
+/* 头部 */
+.header {
+  position: relative;
+  display: flex;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-bottom: 40rpx;
+}
+.header .searchInput {
+  flex: 1;
+  background-color: #eee;
+  border-radius: 60rpx;
+}
+.searchInput .iconfont {
+  position: absolute;
+  left: 18rpx;
+}
+.searchInput input {
+  margin-left: 60rpx;
+  height: 60rpx;
+}
+.searchInput input .placeholder {
+  font-size: 28rpx;
+}
+.header .cancel {
+  width: 100rpx;
+  text-align: center;
+}
+/* 搜索内容展示 */
+.showSearchContent .searchContent {
+  padding-bottom: 20rpx;
+  margin: 0 10rpx;
+  font-size: 28rpx;
+  color: #d43c33;
+  border-bottom: 1px solid #d43c33;
+}
+.searchList .searchItem {
+  display: flex;
+  align-items: center;
+}
+.searchItem .iconfont {
+  padding-right: 20rpx;
+}
+.searchItem .searchText {
+  flex: 1;
+  border-bottom: 1rpx solid #ddd;
+  height: 80rpx;
+  line-height: 80rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 30rpx;
+}
+/* 历史记录 */
+.historyContent .historyList {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 40rpx 40rpx 0;
+}
+.historyList .historyText {
+  font-size: 34rpx;
+}
+.historyList .historyItem {
+  margin: 10rpx 0 10rpx 20rpx;
+  background-color: #efefef;
+  padding: 0 20rpx;
+  border-radius: 15rpx;
+}
+.historyList .iconfont {
+  position: absolute;
+  right: -36rpx;
+  bottom: 10rpx;
+  font-size: 40rpx;
+}
+/* 热搜榜 */
+.hotSearch .title {
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #ddd;
+  font-size: 32rpx;
+}
+.hotSearch .hotList {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10rpx;
+}
+.hotList .hotItem {
+  display: flex;
+  width: 50%;
+  height: 80rpx;
+  line-height: 100rpx;
+  font-size: 26rpx;
+}
+.hotItem text {
+  padding-right: 10rpx;
+}
+.hotItem image {
+  height: 20rpx;
+}
+.hotList .hotItem:nth-child(-n + 3) {
+  font-weight: 700;
+}

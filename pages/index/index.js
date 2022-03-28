@@ -20,7 +20,7 @@ Page({
       id
     } = e.currentTarget
     wx.navigateTo({
-      url: `/pages/${id}/${id}`,
+      url: `/songPackage/pages/${id}/${id}`,
     })
   },
   async getBanner() {

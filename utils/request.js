@@ -121,3 +121,34 @@ export const reqSongUrl = (data) => {
     })
   })
 }
+
+export const reqSearchDefault = () => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: localhost + '/search/default',
+      success: (res) => resolve(res.data),
+      fail: (err) => reject(err)
+    })
+  })
+}
+
+export const reqSearchHot = () => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: localhost + '/search/hot/detail',
+      success: (res) => resolve(res.data),
+      fail: (err) => reject(err)
+    })
+  })
+}
+
+export const reqSearch = (data) => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: localhost + '/search',
+      data,
+      success: (res) => resolve(res.data),
+      fail: (err) => reject(err)
+    })
+  })
+}

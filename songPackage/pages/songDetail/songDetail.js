@@ -3,7 +3,7 @@ import moment from 'moment'
 import {
   reqSongDetail,
   reqSongUrl
-} from '../../utils/request'
+} from '../../../utils/request'
 const appIns = getApp()
 Page({
 

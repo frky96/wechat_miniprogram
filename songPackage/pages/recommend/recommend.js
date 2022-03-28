@@ -1,7 +1,7 @@
 import pubsub from 'pubsub-js'
 import {
   reqRecommendSongs
-} from '../../utils/request'
+} from '../../../utils/request'
 Page({
 
   /**
@@ -41,7 +41,7 @@ Page({
       index
     })
     wx.navigateTo({
-      url: `/pages/songDetail/songDetail?songId=${id}`,
+      url: `/songPackage/pages/songDetail/songDetail?songId=${id}`,
     })
   },
   /**
